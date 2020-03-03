@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Mirrored from www.pzhan.com/hua/2103/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Nov 2019 08:38:55 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <title>[[${Atlas.getAtlas_name()}]]</title>
+    <meta name="keywords"
+          content="原画,漫画,二次元,cosplay,插画,同人,动漫设计,动漫角色,动漫图片,游戏设计"/>
+    <meta name="description" content="可爱的妹子戴不戴眼镜都可爱，喜欢的就收藏吧！"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="pc">
+    <meta name="csrf-token" content="QC3mUGkJgvvz70lfO56d1UBDIpvYBMTPCTlTJAeM">
+    <link type="image/x-icon" href="/images/favicon.ico" rel="icon"/>
+    <link type="image/x-icon" href="/images/favicon.ico" rel="shortcut icon"/>
+    <link type="image/x-icon" href="/images/favicon.ico" rel="bookmark"/>
+    <style>
+        body {
+            background-color: #f5f5f5
+        }
+    </style>
+    <link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" href="/css/style7a55.css?v=201911211814">
+    <link rel="stylesheet" href="/dist/css/zoomify.min.css">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="header-top">
+        <div class="wrapper">
+            <div class="header-logo"><a href="/user" title="P站">P站</a></div>
+            <ul class="menu-fl">
+                <li class="home "><a href="/user" title="P站首页">首页</a></li>
+                <li><a href="/user/find" title="发现">发现</a></li>
+                <li  class="on"><a href="/user/hua" title="插画">插画</a></li>
+                <li><a href="/user/book" title="小说">小说</a></li>
+                <li><a href="/user/u" title="创作者">创作者</a></li>
+            </ul>
+            <div class="menu-fr">
+                <div class="user-upload">
+                    <a target="_blank" href="https://ku.pzhan.com/2019/" title="素描教学">素描教学</a>
+                    <a target="_blank" th:if="${session.user!=null}"
+                       th:href="@{'/user/us/'+${session.user.getUser_id()}+'/upload'}"
+                       class="clink" title="作品投稿"><i class="icon"></i>作品投稿</a>
+                    <a target="_blank" th:if="${session.user==null}"
+                       href="/user/login"
+                       class="clink" title="作品投稿"><i class="icon"></i>作品投稿</a>
+                </div>
+                <div class="user-info"  th:if="${session.user != null}">
+                    <div class="avatar fl"><img th:alt="${session.user.getUser_name()}" th:src="@{'/file/web/asd/image.pzhan.com/'+${session.user.getUser_icon()}}"></div>
+                    <div class="menu-user fr" ><a th:href="@{'/user/u/'+${session.user.getUser_id()}}">[[${session.user.getUser_name()}]]</a></div>
+                    <ul class="hide-bar" style="display:none;">
+                        <li><a th:href="@{'/user/u/'+${session.user.getUser_id()}}">个人主页</a></li>
+                        <li><a th:href="@{'/user/us/'+${session.user.getUser_id()}+'/infosetting'}">信息设置</a></li>
+                        <li><a th:href="@{'/user/us/'+${session.user.getUser_id()}+'/avatarsetting'}">切换头像</a></li>
+                        <li><a th:href="@{'/user/us/'+${session.user.getUser_id()}+'/passwordsetting'}">更改密码</a></li>
+                        <li><a href="/user/loginout">退出登陆</a></li>
+                    </ul>
+                </div>
+                <div class="user-info" th:if="${session.user == null}">
+                    <div class="avatar fl"><img alt="鸣人头像" th:src="@{/images/avatar_mingren.png}"></div>
+                    <div class="menu-user fr" >
+                        <a href="/user/login" title="P站登陆">登录</a>
+                        <a href="/user/register" title="P站注册">注册</a>
+                    </div>
+
+                    <ul class="hide-box" style="display:none;">
+                        <li class="f14">现在注册获得头像<span class="blue">(火影忍者 鸣人)</span></li>
+                        <li class="c80">现在出发，和我们一起开拓自己的忍道！</li>
+                        <li class="public-avatar">
+                            <a target="_blank" href="u/249653/index.html" class="avatar" title="西米露">
+                                <img src="../image.pzhan.com/20191124/d2321bbacc7696cf62528b785588e431_150_150.jpg"
+                                     alt="西米露">
+                            </a>
+                            <a target="_blank" href="u/249623/index.html" class="avatar" title="白社会">
+                                <img src="../image1.pzhan.com/20191124/c83a63e2e6b498ce3f88c34ac1b43cf7_150_150.jpg"
+                                     alt="白社会">
+                            </a>
+                            <a target="_blank" href="u/107397/index.html" class="avatar" title="Cynthia">
+                                <img src="../image.pzhan.com/20191019/d8ff7d37ecc18152ea93173fd5879985_150_150.jpg"
+                                     alt="Cynthia">
+                            </a>
+                            <a target="_blank" href="u/59850/index.html" class="avatar" title="凌辰">
+                                <img src="../image.pzhan.com/20191004/f6f14d113398944826411a1a16362c0b_150_150.jpg"
+                                     alt="凌辰">
+                            </a>
+                            <a target="_blank" href="u/249573/index.html" class="avatar" title="人间最得意">
+                                <img src="../image1.pzhan.com/20191124/241eae4a6fad95d1bacc64c2f94b5d75_150_150.jpg"
+                                     alt="人间最得意">
+                            </a>
+                            <a target="_blank" href="u/68307/index.html" class="avatar" title="嘤宸、雨宣翎">
+                                <img src="../image1.pzhan.com/20191006/8572a6b90643405cb32f8521a44db7ca_150_150.jpg"
+                                     alt="嘤宸、雨宣翎">
+                            </a>
+                            <a target="_blank" href="u/249549/index.html" class="avatar" title="Shne🌙">
+                                <img src="../image.pzhan.com/20191124/3be45c3d6e91bdc51ebc1248cb679866_150_150.jpg"
+                                     alt="Shne🌙">
+                            </a>
+                            <a target="_blank" href="u/249473/index.html" class="avatar" title="WilliamLi">
+                                <img src="../image.pzhan.com/20191124/912501532226a526108c5b3889475002_150_150.jpg"
+                                     alt="WilliamLi">
+                            </a>
+                            <a target="_blank" href="u/249494/index.html" class="avatar" title="想い">
+                                <img src="../image.pzhan.com/20191124/9e4fedea50a0a7d4a92e8578b61ff9ac_150_150.png"
+                                     alt="想い">
+                            </a>
+                            <a target="_blank" href="u/65504/index.html" class="avatar" title="懒！">
+                                <img src="../image1.pzhan.com/20191005/adf0a3e4cb5a91c187b116a4bed56c53_150_150.png"
+                                     alt="懒！">
+                            </a>
+                            <a target="_blank" href="u/249440/index.html" class="avatar" title="不劳而获的废物吧">
+                                <img src="../image1.pzhan.com/20191124/a722536ae05df6f519617d99473b3cda_150_150.jpg"
+                                     alt="不劳而获的废物吧">
+                            </a>
+                            <a target="_blank" href="u/249361/index.html" class="avatar" title="幽尘伞记">
+                                <img src="../image1.pzhan.com/20191124/6c35c0b5e9d1959e85ff1f0872b9675d_150_150.gif"
+                                     alt="幽尘伞记">
+                            </a>
+                        </li>
+                        <li>共有<span class="clink" title="创作者">9682人喜欢</span>本期NARUTO主题</li>
+                        <li class="tags">
+                            <a target="_blank" href="https://ku.pzhan.com/1178/" title="火影忍者">火影忍者</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1736/" title="鸣人">鸣人</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1175/" title="佐助">佐助</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1752/" title="卡卡西">卡卡西</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1744/" title="小樱">小樱</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6227/" title="宇智波鼬">宇智波鼬</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6453/" title="佐良娜">佐良娜</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6386/" title="我爱罗">我爱罗</a>
+                            <a target="_blank" href="https://ku.pzhan.com/2769/" title="波风水门">波风水门</a>
+                        </li>
+                        <li class="login-regsiter c80">
+							<span class="fl">已有帐号，立即登陆
+							<a href="https://i.pzhan.com/login/" class="bg-blue" title="P站登陆">立即登陆</a>
+							</span>
+                            <span class="fl">没有，给朕来一个
+							<a href="https://i.pzhan.com/register/" title="P站注册">点我注册</a>
+							</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="header-index"
+     style="background-image: url(/images/index/bgcolor.jpg);">
+    <div class="wrapper">
+        <div class="menu-search">
+            <form class="search-form" method="GET" action="https://search.pzhan.com/keywords">
+                <input type="hidden" name="_token" value="QC3mUGkJgvvz70lfO56d1UBDIpvYBMTPCTlTJAeM">
+                <input type="text" name="keywords" value="" placeholder="输入关键词" maxlength="38"
+                       class="search search_input">
+                <input type="button" name="" class="btn search_button">
+            </form>
+        </div>
+    </div>
+</div>
+<!-- section -->
+<div class="works-field clearfix">
+    <div class="wrapper">
+        <div class="works-left fl">
+            <div class="works-box">
+                <ul class="works-ul">
+                    <li class="works-show activecheck">
+
+
+                        <img  th:data-url="'/web/asd/image1.pzhan.com/'+${Atlas.getImages().get(0).getImage()}"  th:id="adds_1" th:alt="${Atlas.getAtlas_name()}"
+                             th:src="@{'/file/web/asd/image1.pzhan.com/'+${Atlas.getImages().get(0).getImage()}}"/>
+                        <!--cursor: -webkit-zoom-in;-->
+                        <span id="count_1">1/[[${Atlas.getImages().size()}]]</span>
+
+                    </li>
+                    <li class="works-show activecheck" th:each="image,i : ${Atlas.getImages()}" th:if="${i.count>=2}" >
+
+
+                        <img th:data-url="'/web/asd/image1.pzhan.com/'+${image.getImage()}" th:id="'adds_'+${i.count}" class="activecheck" th:alt="${Atlas.getAtlas_name()}"
+                             th:src="@{'/file/web/asd/image1.pzhan.com/'+${image.getImage()}}"  style="display:none;"/>
+
+                        <span th:id="'count_'+${i.count}"  style="display:none;">[[${i.count}]]/[[${Atlas.getImages().size()}]]</span>
+
+                    </li>
+                    <div class="linear" th:if="${Atlas.getImages().size() !=1}">
+                        <div  id="btn_all" th:if="${session.user!=null}" th:onclick="'look_all('+${Atlas.getImages().size()}+')'" class="more">查看更多</div>
+                        <div  th:if="${session.user==null}" th:onclick="alert_login()" class="more">查看更多</div>
+                    </div>
+                </ul>
+
+                <div class="synopsis fl">
+                    <h1>[[${Atlas.getAtlas_name()}]] <font color="red"></font></h1>
+                    <p>[[${Atlas.getAtlas_synopsis()}]]</p>
+                </div>
+                <div class="btn-item fr" >
+                    <span class="download-btn btn-a" th:if="${session.user ==null}" onclick="alert_login()">下载原图</span>
+                    <span class="download-btn btn-a" th:if="${session.user !=null}" onclick="downloadimg()">下载原图</span>
+                    <div class="toolbar-btn">
+                        <span name="likes" class="likes" th:if="${session.user !=null && session.user.getUser_id()!=Atlas.getUser_id()}"
+                                            th:userId="${session.user.getUser_id()}" th:text="${liketext}">喜欢</span>
+                        <span name="likes" class="likes" th:if="${session.user ==null}"   onclick="alert_login()">喜欢</span>
+                        <span>分享</span>
+                        <div class="bdsharebuttonbox bdshare-button-style0-32 btnbox" data-bd-bind="1562825760757">
+                            <a href="#" class="bds_more" data-cmd="more"></a>
+                            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+                            <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box clear">
+                    <div class="tags">
+                        <a target="_blank" href="https://ku.pzhan.com/1436/"
+                           title="偶像大师">偶像大师<i>227</i></a>
+                        <a target="_blank" href="https://ku.pzhan.com/1554/"
+                           title="眼镜">眼镜<i>217</i></a>
+                        <a target="_blank" href="https://ku.pzhan.com/225/"
+                           title="小姐姐">小姐姐<i>391</i></a>
+                        <a target="_blank" href="https://ku.pzhan.com/232/"
+                           title="可爱">可爱<i>805</i></a>
+                        <a target="_blank" href="https://ku.pzhan.com/218/"
+                           title="妹子">妹子<i>795</i></a>
+                    </div>
+                    <div class="item">
+                        <div class="see">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#929292" enable-background="new 0 0 24 24"
+                                 viewBox="0 0 24 24"
+                                 role="img"
+                                 class="info-icon">
+                                <path d="m12 3c-6.627 0-12 7.5-12 9s5.373 9 12 9 12-7.5 12-9-5.373-9-12-9zm0 13c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"></path>
+                            </svg>
+                            <i>[[${Atlas.getAtlas_looknum()}]]</i> 人气
+                        </div>
+                        <div class="likes">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#929292" enable-background="new 0 0 24 24"
+                                 viewBox="0 0 24 24"
+                                 role="img"
+                                 class="info-icon">
+                                <path d="m18.199 2.04c-2.606-.284-4.262.961-6.199 3.008-2.045-2.047-3.593-3.292-6.199-3.008-3.544.388-6.321 4.43-5.718 7.96.966 5.659 5.944 9 11.917 12 5.973-3 10.951-6.341 11.917-12 .603-3.53-2.174-7.572-5.718-7.96z"></path>
+                            </svg>
+                            <i>[[${like_count}]]</i> 喜欢
+                        </div>
+                        <div class="num">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#929292" enable-background="new 0 0 24 24"
+                                 viewBox="0 0 24 24"
+                                 role="img"
+                                 class="info-icon">
+                                <path d="m0 22c0 1.105.896 2 2 2h20c1.105 0 2-.896 2-2v-11h-24zm22-20h-3v-1c0-.552-.448-1-1-1s-1 .448-1 1v1h-10v-1c0-.552-.448-1-1-1s-1 .448-1 1v1h-3c-1.104 0-2 .896-2 2v5h24v-5c0-1.104-.896-2-2-2zm-16 5c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm12 0c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z"></path>
+                            </svg>
+                            [[${Atlas.getImages().size()}]]张 (插画-Illustration)
+                        </div>
+                    </div>
+                    <div class="time">[[${Atlas.getAtlas_time()}]]</div>
+                </div>
+                <div class="user-write clearfix">
+
+                    <div class="user fl">
+                        <div class="avatar">
+                            <a th:href="@{'/user/u/'+${Atlas.getUser().getUser_id()}}"
+                               th:title="${Atlas.getUser().getUser_name()}">
+                                <img th:alt="${Atlas.getUser().getUser_name()}"
+                                     th:src="@{'/file/web/asd/image.pzhan.com/'+${Atlas.getUser().getUser_icon()}}">
+                            </a>
+                        </div>
+                        <div class="name">
+                            <a th:href="@{'/user/u/'+${Atlas.getUser().getUser_id()}}"
+                               th:title="${Atlas.getUser().getUser_name()}">[[${Atlas.getUser().getUser_name()}]]</a>
+                        </div>
+                        <div class="btn">
+                            <span name="follow" class="follow" th:if="${session.user==null}" onclick="alert_login()">关注 ~ ~!</span>
+                            <span name="follow" class="follow" th:userId="${Atlas.getUser_id()}" th:if="${session.user!=null && Atlas.getUser_id()!=session.user.getUser_id()}" th:text="${followtext}">关注 ~ ~!</span>
+                        </div>
+                    </div>
+                    <div class="fl">
+                        <a target="_blank" href="../62759/index.html" th:title="${atlas.getAtlas_name()}" class="pic" th:each="atlas :${Atlas.getUser().getAtlas()}">
+                            <img th:src="@{'/file/web/asd/image1.pzhan.com/'+${atlas.getImages().get(0).getImage()}}"
+                                 th:alt="${atlas.getAtlas_name()}"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-field">
+                <div class="comment-box">
+                    <p>评论</p>
+                    <div class="message-area">
+                        <div class="text fl">
+                            <textarea name="comments_contents" class="comments_contents"
+                                      placeholder="写下你想说的话~~"></textarea>
+                        </div>
+                        <div class="comment-btn fr">
+                            <input type="button" name="comments" value="发表评论" class="comments">
+                        </div>
+                    </div>
+                </div>
+                <ul th:if="${Comments.size() ==0}" class="comment-message comments_list">
+                    <li class="comment-list message-no"></li>
+
+                </ul>
+                <ul th:if="${Comments.size() !=0}" class="comment-message comments_list">
+                    <li class="comment-list old_comment">
+                        <div class="avatar fl">
+                            <a th:title="${Comments.get(0).getUser().getUser_name()}" th:href="@{'/user/u/'+${Comments.get(0).getUser().getUser_id()}}">
+                                <img th:src="@{'/file/web/asd/image.pzhan.com/'+${Comments.get(0).getUser().getUser_icon()}}"
+                                     th:alt="${Comments.get(0).getUser().getUser_name()}"/>
+                            </a>
+                        </div>
+
+                        <div class="txt fl">
+                            <div class="name">
+                                <a th:title="${Comments.get(0).getUser().getUser_name()}"  th:href="@{'/user/u/'+${Comments.get(0).getUser().getUser_id()}}">[[${Comments.get(0).getUser().getUser_name()}]]</a>
+                                <font th:if="${session.user!=null && Atlas.getUser_id()!=session.user.getUser_id()}">(本插画集插画师)</font>
+                            </div>
+                            <p class="comment_1">[[${Comments.get(0).getComment()}]]</p>
+                            <div class="time"><span>[[${#dates.format(Comments.get(0).getComment_time(), 'yyyy-MM-dd')}]]</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li th:id="'comment_'+${comment.getComment_id()}" class="comment-list old_comment" th:each="comment, i: ${Comments}" th:if="${i.count>=2}" style="display:none;">
+                        <div class="avatar fl">
+                            <a th:title="${comment.getUser().getUser_name()}" th:href="@{'/u/'+${comment.getUser().getUser_id()}}">
+                                <img th:src="@{'/file/web/asd/image.pzhan.com/'+${comment.getUser().getUser_icon()}}"
+                                     th:alt="${comment.getUser().getUser_name()}"/>
+                            </a>
+                        </div>
+
+                        <div class="txt fl">
+                            <div class="name">
+                                <a th:title="${comment.getUser().getUser_name()}"  th:href="@{'/u/'+${comment.getUser().getUser_id()}}">[[${comment.getUser().getUser_name()}]]</a>
+                                <font th:if="${session.user!=null && Comments.get(0).getUser_id()!=session.user.getUser_id()}">(本插画集插画师)</font>
+                            </div>
+                            <p class="comment">[[${comment.getComment()}]]</p>
+                            <div class="time"><span>[[${comment.getComment_time()}]]</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div id="commentBtn_all" class="more load_more" th:if="${Comments.size() > 1}" th:onclick="'look_comments('+${Comments.size()}+')'">查看更多</div>
+                <div class="more load_more" th:if="${session.user==null}" th:onclick="alert_login()">查看更多</div>
+            </div>
+        </div>
+        <div class="works-right fr">
+            <div class="user-info">
+                <div class="avatar fl">
+                    <a th:href="@{'/user/u/'+${Atlas.getUser().getUser_id()}}" th:title="${Atlas.getUser().getUser_name()}">
+                        <img th:src="@{'/file/web/asd/image.pzhan.com/'+${Atlas.getUser().getUser_icon()}}"
+                             th:alt="${Atlas.getUser().getUser_name()}">
+                    </a>
+                </div>
+                <div class="info">
+                    <a th:href="@{'/user/u/'+${Atlas.getUser().getUser_id()}}" th:title="${Atlas.getUser().getUser_name()}"
+                       class="name">[[${Atlas.getUser().getUser_name()}]]</a>
+                    <p class="text">[[${Atlas.getUser().getUser_synopsis()}]]</p>
+                </div>
+                <div class="btn">
+                    <span name="follow" class="follow" th:if="${session.user==null}" onclick="alert_login()">关注 ~ ~!</span>
+                    <span name="follow" class="follow" th:userId="${Atlas.getUser_id()}" th:if="${session.user!=null && Atlas.getUser_id()!=session.user.getUser_id()}" th:text="${followtext}">关注 ~ ~!</span>
+                </div>
+            </div>
+
+            <div class="other">
+                <div class="top"><h2 class="title fl">其他作品</h2>
+                    <a th:href="@{'/user/u/'+${Atlas.getUser().getUser_id()}+'/hua'}"
+                       th:title="${Atlas.getUser().getUser_name()}+'的作品'" class="more fr">查看作品列表</a>
+                </div>
+                <i class="icon tol"></i>
+                <i class="icon tor"></i>
+                <div class="pic-box clearfix">
+                    <a target="_blank" th:href="@{'/user/hua/'+${atlas.getAtlas_id()}}" th:title="${atlas.getAtlas_name()}" class="pic" th:each="atlas :${Atlas.getUser().getAtlas()}">
+                        <img th:src="@{'/file/web/asd/image1.pzhan.com/'+${atlas.getImages().get(0).getImage()}}"
+                             th:alt="${atlas.getAtlas_name()}"/>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="recommend-works bgcolor-a">
+    <div class="wrapper ofh">
+        <h2 class="top">推荐作品</h2>
+        <ul class="list">
+            <li class="card-box" th:each="atlas,i : ${Atlashotandtime}" th:if="${i.count<=20}">
+                <div class="pic">
+                    <a target="_blank" th:href="@{'/user/hua/'+${atlas.getAtlas_id()}}" th:title="${atlas.getAtlas_name()}">
+                        <img th:src="@{'/file/web/asd/image1.pzhan.com/'+${atlas.getImages().get(0).getImage()}}"
+                             th:alt="${atlas.getAtlas_name()}"/>
+                    </a>
+                </div>
+                <div class="title">
+                    <a target="_blank" th:href="@{'/user/hua/'+${atlas.getAtlas_id()}}"
+                       th:title="${atlas.getAtlas_name()}">[[${atlas.getAtlas_name()}]]</a>
+                </div>
+
+                <div class="user-name">
+                    <a target="_blank" th:href="@{'/user/u/'+${atlas.getUser().getUser_id()}}" th:title="${atlas.getUser().getUser_name()}">
+                        <img th:src="@{'/file/web/asd/image.pzhan.com/'+${atlas.getUser().getUser_icon()}}"
+                             th:alt="${atlas.getUser().getUser_name()}"/>
+                    </a>
+                    <a target="_blank" th:title="${atlas.getUser().getUser_name()}" th:href="@{'/user/u/'+${atlas.getUser().getUser_id()}}">[[${atlas.getUser().getUser_name()}]]</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="public-eject f14">
+    <div class="eject-head">
+        <span></span>
+        系统提示
+        <i class="icon"></i>
+    </div>
+    <div class="eject-info">
+        <p class="cblue">欢迎拿走《初音未来》原图</p>
+        <p>宽带费<span class="clink">0.5P点(阿里云收取)</span></p>
+        <p><a href="#" class="btn btn-a">为爱充电</a></p>
+        <p class="c99">P站不收取任何费用，巨大的宽带费由阿里云计算收取</p>
+    </div>
+</div>
+
+
+<div class="login-eject">
+    <i class="icon close"></i>
+    <div class="login-logo"><img src="/images/pzhan_logo_64x64.png">属于自己的世界</div>
+    <form class="layui-form login_form" id="ajax_login" name="ajax_login" method="POST"
+          action="/user/login">
+        <input type="hidden" name="_token" value="QC3mUGkJgvvz70lfO56d1UBDIpvYBMTPCTlTJAeM">
+        <div class="layui-form-item tom">
+            <input type="tel" name="username" lay-verify="required|phone" autocomplete="off" lay-verType="tips"
+                   class="layui-input" placeholder="请输入邮箱">
+        </div>
+        <div class="layui-form-item">
+            <input type="password" name="password" autocomplete="off" lay-verType="tips"
+                   class="layui-input" placeholder="输入密码，8-20位">
+        </div>
+        <div class="layui-form-item">
+
+            <a href="https://i.pzhan.com/password/reset/" class="fr" title="忘记密码">忘记密码？</a>
+        </div>
+        <div class="layui-form-item pat">
+            <span class="layui-btn btn ajax_login_submit" lay-submit="" lay-filter="" onclick="document.getElementById('ajax_login').submit();">立即登录</span>
+        </div>
+    </form>
+    <div class="txt"><a href="javascript:alert_register()">还没有帐号，立即注册</a></div>
+    <div class="other-login">
+        <div class="title">第三方账号登录</div>
+        <div class="clearfix">
+            <div class="qq fl"><a href="https://i.pzhan.com/thirdparty/qq"><i class="icon"></i>QQ帐号登陆</a></div>
+            <div class="weixin fr"><a href="javascript:alert('开发中，敬请期待 ~ ~!')"><i class="icon"></i>微信帐号登陆</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="regsiter-eject">
+    <i class="icon close"></i>
+    <div class="login-logo"><img src="/images/pzhan_logo_64x64.png">属于自己的世界</div>
+    <form class="layui-form register_form" id="ajax_register" name="ajax_register" method="POST"
+          action="https://www.pzhan.com/register">
+        <input type="hidden" name="_token" value="QC3mUGkJgvvz70lfO56d1UBDIpvYBMTPCTlTJAeM">
+        <div class="layui-form-item tom">
+            <input type="tel" name="username" lay-verify="required" autocomplete="off" lay-verType="tips"
+                   class="layui-input" placeholder="输入用户名">
+        </div>
+        <div class="layui-form-item tom">
+            <input type="tel" name="mobile" lay-verify="required|phone" autocomplete="off" lay-verType="tips"
+                   class="layui-input" placeholder="输入邮箱号">
+        </div>
+        <div class="layui-form-item">
+            <input type="password" name="password" lay-verify="required" autocomplete="off" lay-verType="tips"
+                   class="layui-input" placeholder="输入密码，8-20位">
+        </div>
+
+
+        <div class="layui-form-item text">
+			<span class="fl">
+				<input type="checkbox" checked="checked" name="remember" class="ckx">
+				<div class="layui-unselect layui-form-checkbox layui-form-checked">
+					<i class="layui-icon layui-icon-ok"></i>
+				</div>我已同意并接受P站<a target="_blank" href="../../bulletin/agreement.html" title="用户协议">《用户协议》</a>
+			</span>
+        </div>
+        <div class="layui-form-item pat">
+            <span class="layui-btn btn ajax_register_submit" lay-submit="" lay-filter="">立即注册</span>
+        </div>
+    </form>
+    <div class="txt"><a href="javascript:alert_login()">已有账号，立即登录</a></div>
+</div>
+
+<div class="shade"></div>
+
+<div class="homeup" style="display: block;"><i class="icon"></i></div>
+
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/layui.js"></script>
+<script type="text/javascript" src="/js/public77f7.js?v=201911170011"></script>
+<script type="text/javascript" src="/js/lazysizes.min.js"></script>
+<script src="/dist/js/zoomify.min.js"></script>
+<script type="text/javascript">
+    $('.works-show img').zoomify();
+</script>
+<script type="text/javascript" th:if="${session.user!=null}">
+    var follow = document.getElementsByClassName("follow");
+    var like= document.getElementsByClassName("likes");
+    if(like[0].innerHTML != "已喜欢"){
+        like[0].innerHTML = "喜欢";
+    }
+    for (var i=0;i<=follow.length-1;i++){
+        if (follow[i].innerHTML == "已关注 ~ ~!") {
+            follow[i].setAttribute('style', 'background-color:#b1b1b1;border:#b1b1b1;')
+        } else{
+            follow[i].innerHTML = "关注 ~ ~!";
+        }
+    }
+
+
+</script>
+<script type="text/javascript" th:inline="javascript" th:if="${session.user!=null}">
+
+    $(".follow").on("click", function () {
+        var userId = $(this).attr("userId");
+        var follow = $(this);
+        if ($.trim(follow.html()) == '已关注 ~ ~!') {
+            var follow_url = "/user/u/followsdelete/" + userId;
+        } else {
+            var follow_url = "/user/u/followsInsert/" + userId;
+        }
+        console.log(userId+""+follow_url);
+        $.ajax({
+            type: 'POST',
+            url: follow_url,
+            cache: false,
+            data: {"user_id": userId},
+            dataType: 'json',
+            success: function (data) {
+                if (data != null)
+                    location.reload()
+
+            },
+            error: function () {
+                alert("操作失败，存在异常");
+            }
+        })
+    })
+    $(".likes").on("click", function () {
+        var userId = $(this).attr("userId");
+        var like= $(this);
+        var atlasId=[[${Atlas.getAtlas_id()}]]
+        if ($.trim(like.html()) == '已喜欢') {
+            var follow_url = "/user/u/deletelike" ;
+        } else {
+            var follow_url = "/user/u/Insertlike";
+        }
+        $.ajax({
+            type: 'POST',
+            url: follow_url,
+            cache: false,
+            data: {"user_id": userId,"atlas_id":atlasId},
+            dataType: 'json',
+            success: function (data) {
+                if (data != null)
+                    location.reload()
+
+            },
+            error: function () {
+                alert("操作失败，存在异常");
+            }
+        })
+    })
+    function downloadimg() {
+        //获取所有被选的图片的名称与绝对路径放入数组
+        var list = $(".activecheck");
+        var name=[[${Atlas.getAtlas_name()}]]
+        var imgNameList = [];
+        var imgUrlList = [];
+        for(var i = 0;i<list.length-1;i++){
+            var b = $(list[i].childNodes[1]).attr("data-url");
+
+            imgNameList.push(name+""+(i+1));//图片名称
+            if(b!=null)
+            imgUrlList.push(b);//图片绝对路径
+            console.log(b)
+        }
+        var paths =  encodeURI(encodeURI(imgUrlList));
+        console.log(imgUrlList)
+
+        var names = encodeURI(encodeURI(imgNameList));
+        console.log(names)
+        //将名称传入后台
+        window.location.href = "/user/download?names="+names+"&paths="+paths+"&name="+name;
+    }
+</script>
+</body>
+
+<!-- Mirrored from www.pzhan.com/hua/2103/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Nov 2019 08:39:01 GMT -->
+</html>

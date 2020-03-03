@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Mirrored from www.pzhan.com/rank/writer/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Nov 2019 08:39:32 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <title>投稿榜单 插画 漫画 动漫 原画_P站</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="pc">
+    <meta name="csrf-token" content="QC3mUGkJgvvz70lfO56d1UBDIpvYBMTPCTlTJAeM">
+    <link type="image/x-icon" href="favicon.ico" rel="icon"/>
+    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon"/>
+    <link type="image/x-icon" href="favicon.ico" rel="bookmark"/>
+
+    <link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" href="/css/style7a55.css?v=201911211814">
+
+</head>
+<body>
+<div class="header clearfix">
+    <div class="header-top">
+        <div class="wrapper">
+            <div class="header-logo"><a href="/user" title="P站">P站</a></div>
+            <ul class="menu-fl">
+                <li class="home "><a href="/user" title="P站首页">首页</a></li>
+                <li><a href="/user/find" title="发现">发现</a></li>
+                <li><a href="/user/hua" title="插画">插画</a></li>
+                <li><a href="/user/book" title="小说">小说</a></li>
+                <li><a href="/user/u" title="创作者">创作者</a></li>
+            </ul>
+            <div class="menu-fr">
+                <div class="user-upload">
+                    <a target="_blank" href="https://ku.pzhan.com/2019/" title="素描教学">素描教学</a>
+                    <a target="_blank" th:if="${session.user!=null}"
+                       th:href="@{'/user/us/'+${session.user.getUser_id()}+'/upload'}"
+                       class="clink" title="作品投稿"><i class="icon"></i>作品投稿</a>
+                    <a target="_blank" th:if="${session.user==null}"
+                       href="/user/login"
+                       class="clink" title="作品投稿"><i class="icon"></i>作品投稿</a>
+                </div>
+                <div class="user-info"  th:if="${session.user != null}">
+                    <div class="avatar fl"><img th:alt="${session.user.getUser_name()}" th:src="@{'/file/web/asd/image.pzhan.com/'+${session.user.getUser_icon()}}"></div>
+                    <div class="menu-user fr" ><a th:href="@{'/user/u/'+${session.user.getUser_id()}}">[[${session.user.getUser_name()}]]</a></div>
+                    <ul class="hide-bar" style="display:none;">
+                        <li><a th:href="@{'/user/u/'+${session.user.getUser_id()}}">个人主页</a></li>
+                        <li><a th:href="@{'/user/us/'+${session.user.getUser_id()}+'/infosetting'}">信息设置</a></li>
+                        <li><a th:href="@{'/user/us/'+${session.user.getUser_id()}+'/avatarsetting'}">切换头像</a></li>
+                        <li><a th:href="@{'/user/us/'+${session.user.getUser_id()}+'/passwordsetting'}">更改密码</a></li>
+                        <li><a href="/user/loginout">退出登陆</a></li>
+                    </ul>
+                </div>
+                <div class="user-info" th:if="${session.user == null}">
+                    <div class="avatar fl"><img alt="鸣人头像" th:src="@{/images/avatar_mingren.png}"></div>
+                    <div class="menu-user fr" >
+                        <a href="/user/login" title="P站登陆">登录</a>
+                        <a href="/user/register" title="P站注册">注册</a>
+                    </div>
+
+                    <ul class="hide-box" style="display:none;">
+                        <li class="f14">现在注册获得头像<span class="blue">(火影忍者 鸣人)</span></li>
+                        <li class="c80">现在出发，和我们一起开拓自己的忍道！</li>
+                        <li class="public-avatar">
+                            <a target="_blank" href="u/249653/index.html" class="avatar" title="西米露">
+                                <img src="../image.pzhan.com/20191124/d2321bbacc7696cf62528b785588e431_150_150.jpg"
+                                     alt="西米露">
+                            </a>
+                            <a target="_blank" href="u/249623/index.html" class="avatar" title="白社会">
+                                <img src="../image1.pzhan.com/20191124/c83a63e2e6b498ce3f88c34ac1b43cf7_150_150.jpg"
+                                     alt="白社会">
+                            </a>
+                            <a target="_blank" href="u/107397/index.html" class="avatar" title="Cynthia">
+                                <img src="../image.pzhan.com/20191019/d8ff7d37ecc18152ea93173fd5879985_150_150.jpg"
+                                     alt="Cynthia">
+                            </a>
+                            <a target="_blank" href="u/59850/index.html" class="avatar" title="凌辰">
+                                <img src="../image.pzhan.com/20191004/f6f14d113398944826411a1a16362c0b_150_150.jpg"
+                                     alt="凌辰">
+                            </a>
+                            <a target="_blank" href="u/249573/index.html" class="avatar" title="人间最得意">
+                                <img src="../image1.pzhan.com/20191124/241eae4a6fad95d1bacc64c2f94b5d75_150_150.jpg"
+                                     alt="人间最得意">
+                            </a>
+                            <a target="_blank" href="u/68307/index.html" class="avatar" title="嘤宸、雨宣翎">
+                                <img src="../image1.pzhan.com/20191006/8572a6b90643405cb32f8521a44db7ca_150_150.jpg"
+                                     alt="嘤宸、雨宣翎">
+                            </a>
+                            <a target="_blank" href="u/249549/index.html" class="avatar" title="Shne🌙">
+                                <img src="../image.pzhan.com/20191124/3be45c3d6e91bdc51ebc1248cb679866_150_150.jpg"
+                                     alt="Shne🌙">
+                            </a>
+                            <a target="_blank" href="u/249473/index.html" class="avatar" title="WilliamLi">
+                                <img src="../image.pzhan.com/20191124/912501532226a526108c5b3889475002_150_150.jpg"
+                                     alt="WilliamLi">
+                            </a>
+                            <a target="_blank" href="u/249494/index.html" class="avatar" title="想い">
+                                <img src="../image.pzhan.com/20191124/9e4fedea50a0a7d4a92e8578b61ff9ac_150_150.png"
+                                     alt="想い">
+                            </a>
+                            <a target="_blank" href="u/65504/index.html" class="avatar" title="懒！">
+                                <img src="../image1.pzhan.com/20191005/adf0a3e4cb5a91c187b116a4bed56c53_150_150.png"
+                                     alt="懒！">
+                            </a>
+                            <a target="_blank" href="u/249440/index.html" class="avatar" title="不劳而获的废物吧">
+                                <img src="../image1.pzhan.com/20191124/a722536ae05df6f519617d99473b3cda_150_150.jpg"
+                                     alt="不劳而获的废物吧">
+                            </a>
+                            <a target="_blank" href="u/249361/index.html" class="avatar" title="幽尘伞记">
+                                <img src="../image1.pzhan.com/20191124/6c35c0b5e9d1959e85ff1f0872b9675d_150_150.gif"
+                                     alt="幽尘伞记">
+                            </a>
+                        </li>
+                        <li>共有<span class="clink" title="创作者">9682人喜欢</span>本期NARUTO主题</li>
+                        <li class="tags">
+                            <a target="_blank" href="https://ku.pzhan.com/1178/" title="火影忍者">火影忍者</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1736/" title="鸣人">鸣人</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1175/" title="佐助">佐助</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1752/" title="卡卡西">卡卡西</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1744/" title="小樱">小樱</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6227/" title="宇智波鼬">宇智波鼬</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6453/" title="佐良娜">佐良娜</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6386/" title="我爱罗">我爱罗</a>
+                            <a target="_blank" href="https://ku.pzhan.com/2769/" title="波风水门">波风水门</a>
+                        </li>
+                        <li class="login-regsiter c80">
+							<span class="fl">已有帐号，立即登陆
+							<a href="https://i.pzhan.com/login/" class="bg-blue" title="P站登陆">立即登陆</a>
+							</span>
+                            <span class="fl">没有，给朕来一个
+							<a href="https://i.pzhan.com/register/" title="P站注册">点我注册</a>
+							</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="header-index"
+     style="background-image: url(/images/index/bgcolor.jpg);">
+    <div class="wrapper">
+        <div class="menu-search">
+            <form class="search-form" method="GET" action="https://search.pzhan.com/keywords">
+                <input type="hidden" name="_token" value="QC3mUGkJgvvz70lfO56d1UBDIpvYBMTPCTlTJAeM">
+                <input type="text" name="keywords" value="" placeholder="输入关键词" maxlength="38"
+                       class="search search_input">
+                <input type="button" name="" class="btn search_button">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="filter clearfix">
+    <div class="wrapper">
+        <div class="filter-menu">
+            <div class="hot">
+                <a href="/user/rank" title="热门榜单">热门榜单</a>
+                <a href="/user/writer" class="on" title="投稿榜单">投稿榜单</a>
+                <a href="/user/like" title="喜欢榜单">喜欢榜单</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="main clearfix">
+    <div class="wrapper">
+        <div class="main-content">
+            <ul class="works-count">
+                <li th:each="user,i: ${users}" th:if="${i.count<=10}">
+                    <div class="num">[[${i.count}]]</div>
+                    <div class="avatar">
+                        <a th:href="@{'/user/u/'+${user.getUser_id()}}" th:title="${user.getUser_name()}">
+                            <img th:src="@{'/file/web/asd/image.pzhan.com/'+${user.getUser_icon()}}"
+                                 th:alt="${user.getUser_name()}"/>
+                        </a>
+                        <i class="icon"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="name"><a target="_blank" th:href="@{'/user/u/'+${user.getUser_id()}}"  th:title="${user.getUser_name()}">[[${user.getUser_name()}]]</a>
+                        </div>
+                        <div class="statistics">
+                            <span><a target="_blank" th:href="@{'/user/u/'+${user.getUser_id()}+'/hua'}"
+                                     th:title="${user.getUser_name()+'的投稿'}">画作[[${user.getAtlas().size()}]]</a></span>
+                            <span><a target="_blank" th:href="@{'/user/u/'+${user.getUser_id()}+'/fan'}"
+                                     th:title="${user.getUser_name()+'的粉丝'}">粉丝[[${user.getFans().size()}]]</a></span>
+                        </div>
+                    </div>
+                    <div class="count"><a th:href="@{'/user/u/'+${user.getUser_id()}+'/hua'}" th:title="${user.getUser_name()+'投稿量'}">投稿量[[${user.getAtlas().size()}]]</a></div>
+                    <!--<div class="enthusiasm"><i class="icon"></i>上升-->
+                        <!-- -8-->
+                    <!--</div>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="shade"></div>
+
+<div class="homeup" style="display: block;"><i class="icon"></i></div>
+
+<div class="footer">
+    <div class="wrapper">
+        <div class="up-column">
+            <div class="inlineb about-us">
+                <a target="_blank" href="../../index.html" title="P站">P站</a>
+                <a target="_blank" href="../../bulletin/about/index.html" title="关于我们">关于我们</a>
+                <a target="_blank" href="../../bulletin/contact/index.html" title="联系我们">联系我们</a>
+                <a target="_blank" href="../../bulletin/join/index.html" title="加入P站">加入P站</a>
+                <a target="_blank" href="../../bulletin/agreement/index.html" title="用户协议">用户协议</a>
+                <a target="_blank" href="../../bulletin/feedback/index.html" title="反馈中心">反馈中心</a>
+            </div>
+        </div>
+        <div class="down-column">
+            <a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">黔ICP备17009887号</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52038202001606" rel="nofollow"
+               target="_blank">贵公网安备52038202001606号</a>
+        </div>
+        <div class="inlineb foot-icon">
+            <a href="#"><i class="weixin" title="P站微信"></i></a>
+            <a href="#"><i class="weibo" title="P站微信"></i></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/layui.js"></script>
+<script type="text/javascript" src="/js/public77f7.js?v=201911170011"></script>
+</body>
+
+<!-- Mirrored from www.pzhan.com/rank/writer/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Nov 2019 08:39:32 GMT -->
+</html>

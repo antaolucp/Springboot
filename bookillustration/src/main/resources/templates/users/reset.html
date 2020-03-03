@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Mirrored from i.pzhan.com/password/reset/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Nov 2019 11:36:34 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <title>找回密码 P站</title>
+    <meta name="keywords" content="P站,pzhan,ACG,ACGN,次元世界,原画,漫画,二次元,cosplay,插画,同人,动漫设计,动漫角色,动漫图片,游戏设计"/>
+    <meta name="description"
+          content="P站是国内活跃的ACGN二次元网站,P站有大量ACGN二次元用户和优秀的ACGN创作者。站点内容包含插画,原画,漫画,cosplay,小说等,二次元氛围皮到极点"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="pc">
+    <meta name="csrf-token" content="QVJuUF9b8jNdn1JAskMEwntSjdBYohsBNbZ6khuW">
+    <link type="image/x-icon" href="/images/favicon.ico" rel="icon"/>
+    <link type="image/x-icon" href="/images/favicon.ico" rel="shortcut icon"/>
+    <link type="image/x-icon" href="/images/favicon.ico" rel="bookmark"/>
+    <link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" href="/css/style7a55.css?v=201911211814">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="header-top">
+        <div class="wrapper">
+            <div class="header-logo"><a href="/" title="P站">P站</a></div>
+            <ul class="menu-fl">
+                <li class="home "><a href="/" title="P站首页">首页</a></li>
+                <li><a href="/user/find" title="发现">发现</a></li>
+                <li><a href="/user/hua" title="插画">插画</a></li>
+                <li><a href="/user/book" title="小说">小说</a></li>
+                <li><a href="/user/u" title="创作者">创作者</a></li>
+            </ul>
+            <div class="menu-fr">
+                <div class="user-upload">
+                    <a target="_blank" href="https://ku.pzhan.com/2019/" title="素描教学">素描教学</a>
+                    <a target="_blank"
+                       href="/user/login"
+                       class="clink" title="作品投稿"><i class="icon"></i>作品投稿</a>
+                </div>
+                <div class="user-info">
+                    <div class="avatar fl"><img alt="鸣人头像" src="images/avatar_mingren.png"></div>
+                    <div class="menu-user fr">
+                        <a href="/user/login" title="P站登陆">登录</a>
+                        <a href="/user/register" title="P站注册">注册</a>
+                    </div>
+                    <ul class="hide-box" style="display:none;">
+                        <li class="f14">现在注册获得头像<span class="blue">(火影忍者 鸣人)</span></li>
+                        <li class="c80">现在出发，和我们一起开拓自己的忍道！</li>
+                        <li class="public-avatar">
+                            <a target="_blank" href="https://www.pzhan.com/u/250935/" class="avatar" title="扶不起来啊">
+                                <img src="../../../image.pzhan.com/20191124/d11f19aebc0548557c783f0238de5dba_150_150.jpg"
+                                     alt="扶不起来啊">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/250937/" class="avatar" title="Shimmer">
+                                <img src="../../../image1.pzhan.com/20191124/2099b2b28b1a95130ece7f5ebd8220ee_150_150.jpg"
+                                     alt="Shimmer">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/13638/" class="avatar" title="等星星落到我怀里">
+                                <img src="../../../image.pzhan.com/20190904/39fb9a4578791cc52756f70526867c58_150_150.jpg"
+                                     alt="等星星落到我怀里">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/250882/" class="avatar" title="秋秋秋秋秋秋">
+                                <img src="../../../image1.pzhan.com/20191124/89fa1e2eb15fc4a2d236857f5884d743_150_150.jpg"
+                                     alt="秋秋秋秋秋秋">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/23429/" class="avatar" title="jkk">
+                                <img src="../../../image1.pzhan.com/20190923/af6f0a1053b433738ff109de63d0a261_150_150.jpg"
+                                     alt="jkk">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/149305/" class="avatar" title="御坂士道Misaka">
+                                <img src="../../../image.pzhan.com/20191102/1657ea8803b505ede90e733cb38576d5_150_150.jpg"
+                                     alt="御坂士道Misaka">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/13634/" class="avatar" title="૭l○2·末夏">
+                                <img src="../../../image.pzhan.com/20190904/3c87a33ba3546de4f5e77cd7b30e0ba2_150_150.jpg"
+                                     alt="૭l○2·末夏">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/232226/" class="avatar" title="青衫同学">
+                                <img src="../../../image1.pzhan.com/20191121/2a308b0d4cc6c4b0d6d1bec3ac9b66a3_150_150.jpg"
+                                     alt="青衫同学">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/221734/" class="avatar" title="福克纳">
+                                <img src="../../../image.pzhan.com/20191118/528907d4ef9831db1ff29a141fa3135b_150_150.jpg"
+                                     alt="福克纳">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/42908/" class="avatar" title="贞星">
+                                <img src="../../../image.pzhan.com/20191018/9dffcb66196c7e11b5ef2f1707ec01a7_150_150.jpg"
+                                     alt="贞星">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/250794/" class="avatar" title="御坂09000">
+                                <img src="../../../image.pzhan.com/20191124/d6e8fd7fc9b56d0ea9db5a5403ab6130_150_150.jpg"
+                                     alt="御坂09000">
+                            </a>
+                            <a target="_blank" href="https://www.pzhan.com/u/250784/" class="avatar" title="唯爱YI">
+                                <img src="../../../image1.pzhan.com/20191124/a076a99017c8aff3bbe03512720fcf79_150_150.jpg"
+                                     alt="唯爱YI">
+                            </a>
+                        </li>
+                        <li>共有<span class="clink" title="创作者">10060人喜欢</span>本期NARUTO主题</li>
+                        <li class="tags">
+                            <a target="_blank" href="https://ku.pzhan.com/1178/" title="火影忍者">火影忍者</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1736/" title="鸣人">鸣人</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1175/" title="佐助">佐助</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1752/" title="卡卡西">卡卡西</a>
+                            <a target="_blank" href="https://ku.pzhan.com/1744/" title="小樱">小樱</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6227/" title="宇智波鼬">宇智波鼬</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6453/" title="佐良娜">佐良娜</a>
+                            <a target="_blank" href="https://ku.pzhan.com/6386/" title="我爱罗">我爱罗</a>
+                            <a target="_blank" href="https://ku.pzhan.com/2769/" title="波风水门">波风水门</a>
+                        </li>
+                        <li class="login-regsiter c80">
+							<span class="fl">已有帐号，立即登陆
+							<a href="../../login/index.html" class="bg-blue" title="P站登陆">立即登陆</a>
+							</span>
+                            <span class="fl">没有，给朕来一个
+							<a href="../../register/index.html" title="P站注册">点我注册</a>
+							</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="header-index" style="background-image: url(/images/index/bgcolor.jpg);">
+    <div class="wrapper">
+        <div class="menu-search">
+            <form class="search-form" method="GET" action="https://search.pzhan.com/keywords">
+                <input type="hidden" name="_token" value="QVJuUF9b8jNdn1JAskMEwntSjdBYohsBNbZ6khuW">
+                <input type="text" name="keywords" value="" placeholder="输入关键词" maxlength="38"
+                       class="search search_input">
+                <input type="button" name="" class="btn search_button">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="bgcolor-a">
+    <div style="background: #fff">
+        <div class="regsiter-box">
+            <h1 class="regsiter-header">找回密码</h1>
+            <form class="layui-form" method="POST" id="reset_password" action="/user/reset/ok" onsubmit="return sublimt(this)">
+                <input name="register" type="hidden" value="no">
+                <input type="hidden" name="" value="">
+                <div class="layui-form-item">
+                    <input type="email" name="user_mail" lay-verify="required|phone" autocomplete="off" value=""
+                           lay-verType="tips" class="layui-input" placeholder="请输入邮箱">
+                </div>
+                <div class="layui-form-item item">
+                    <input type="text" name="captcha" id="captcha" lay-verify="required" autocomplete="off"
+                           lay-verType="tips" class="layui-input" placeholder="请输入验证码">
+                    <span><canvas id="canvas" width="155" height="43" onclick="dj()"
+                                  style="border: 1px solid #ccc;"></canvas></span>
+                </div>
+                <div class="layui-form-item item">
+                    <input type="text" name="verify_code" id="verify_code" lay-verify="required" autocomplete="off" lay-verType="tips"
+                           class="layui-input" placeholder="邮箱验证码">
+                    <span class="btn btn-a send_mss">发送邮箱证码</span>
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" name="password" lay-verify="required" autocomplete="off" lay-verType="tips"
+                           class="layui-input" placeholder="请输入密码，8-20位">
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" name="password_confirmation" lay-verify="required" autocomplete="off"
+                           lay-verType="tips" class="layui-input" placeholder="请确认密码，8-20位">
+                </div>
+
+                <div class="layui-form-item">
+                    <button class="layui-btn reg-btn" lay-submit="" lay-filter="demo1">立即找回</button>
+                </div>
+            </form>
+            <div class="text-right">
+                <a href="/login">已有帐号，马上登录</a>
+                <i class="str"></i>
+                <a href="/">返回P站</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shade"></div>
+
+<div class="homeup" style="display: block;"><i class="icon"></i></div>
+
+<div class="footer">
+    <div class="wrapper">
+        <div class="up-column">
+            <div class="inlineb about-us">
+                <a target="_blank" href="https://www.pzhan.com/" title="P站">P站</a>
+                <a target="_blank" href="https://www.pzhan.com/bulletin/about/" title="关于我们">关于我们</a>
+                <a target="_blank" href="https://www.pzhan.com/bulletin/contact/" title="联系我们">联系我们</a>
+                <a target="_blank" href="https://www.pzhan.com/bulletin/join/" title="加入P站">加入P站</a>
+                <a target="_blank" href="https://www.pzhan.com/bulletin/agreement/" title="用户协议">用户协议</a>
+                <a target="_blank" href="https://www.pzhan.com/bulletin/feedback/" title="反馈中心">反馈中心</a>
+            </div>
+        </div>
+        <div class="down-column">
+            <a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">黔ICP备17009887号</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52038202001606" rel="nofollow"
+               target="_blank">贵公网安备52038202001606号</a>
+        </div>
+        <div class="inlineb foot-icon">
+            <a href="#"><i class="weixin" title="P站微信"></i></a>
+            <a href="#"><i class="weibo" title="P站微信"></i></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/layui.js}"></script>
+<script type="text/javascript" src="/js/public77f7.js?v=201911170011'"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var send_click = false;
+    var countdown = 60;
+    var verify_code="";
+    var user_code=[[${param.code}]]
+    $(".send_mss").click(function () {
+        var obj = $(this);
+        var url = "/user/mail";
+        var data = $("#reset_password").serialize();
+
+        if (!url || send_click) {
+            return
+        }
+        $.ajax({
+            type: 'POST',
+            url: url,
+            cache: false,
+            data: data,
+            dataType: 'json',
+
+            success: function (data) {
+                console.log(data);
+                if(data == null){
+                    alert("邮箱不存在")
+
+                }else{
+                    verify_code=data
+                    setTime(obj);//开始倒计时
+                    verify_code=data;
+                    send_click = true;
+                }
+
+            },
+            error: function () {
+                alert("邮箱发送失败")
+            }
+        })
+    });
+
+    //60s倒计时实现逻辑
+    function setTime(obj) {
+        if (countdown == 0) {
+            obj.css('background', '#0096fa');
+            obj.text("发送邮箱验证码");
+            send_click = false;
+            countdown = 60;//60秒过后button上的文字初始化,计时器初始化;
+            return false;
+        } else {
+            obj.css('background', '#ddd');
+            obj.text("(" + countdown + "s)后重新发送");
+            countdown--;
+        }
+        setTimeout(function () {
+            setTime(obj)
+        }, 1000) //每1000毫秒执行一次
+    }
+
+    var show_num = [];
+    draw(show_num);
+
+    function dj() {
+        draw(show_num);
+    }
+
+    function sublimt(form) {
+
+        var val = document.getElementById("captcha").value;
+        var num = show_num.join("");
+        if (val == '') {
+            alert('请输入验证码！');
+            return false;
+        }else if(verify_code == ""){
+            return false;
+        } else if(val.toUpperCase() != num.toUpperCase()){
+            alert('验证码错误！');
+            draw(show_num);
+            return false;
+        }else if(form.password.value!=form.password_confirmation.value &&form.password.value==null){
+            alert("前后密码不一致");
+            return false;
+        }else if(verify_code!= form.verify_code.value){
+            alert("邮箱验证码错误");
+            return false;
+        }else if(form.user_mail==null){
+            alert("邮箱不能为空")
+            return false;
+        }
+
+
+    }
+
+    function draw(show_num) {
+        var canvas_width = document.getElementById('canvas').clientWidth;
+        var canvas_height = document.getElementById('canvas').clientHeight;
+        var canvas = document.getElementById("canvas");//获取到canvas的对象，演员
+        var context = canvas.getContext("2d");//获取到canvas画图的环境，演员表演的舞台
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        var sCode = "A,B,C,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m";
+        var aCode = sCode.split(",");
+        var aLength = aCode.length;//获取到数组的长度
+
+        for (var i = 0; i <= 5; i++) {
+            var j = Math.floor(Math.random() * aLength);//获取到随机的索引值
+            var deg = Math.random() * 30 * Math.PI / 180;//产生0~30之间的随机弧度
+            var txt = aCode[j];//得到随机的一个内容
+            show_num[i] = txt;
+            var x = 10 + i * 20;//文字在canvas上的x坐标
+            var y = 20 + Math.random() * 8;//文字在canvas上的y坐标
+            context.font = "bold 23px 微软雅黑";
+
+            context.translate(x, y);
+            context.rotate(deg);
+
+            context.fillStyle = randomColor();
+            context.fillText(txt, 0, 0);
+
+            context.rotate(-deg);
+            context.translate(-x, -y);
+        }
+        for (var i = 0; i <= 5; i++) { //验证码上显示线条
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            context.moveTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.lineTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.stroke();
+        }
+        for (var i = 0; i <= 30; i++) { //验证码上显示小点
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            var x = Math.random() * canvas_width;
+            var y = Math.random() * canvas_height;
+            context.moveTo(x, y);
+            context.lineTo(x + 1, y + 1);
+            context.stroke();
+        }
+    }
+
+    function randomColor() {//得到随机的颜色值
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+</script>
+<script type="text/javascript" th:if="${session.user!=null}"  th:inline="javascript">
+    window.location.href = [[@{'/user/u/'+${session.user.getUser_id()}}]];
+</script>
+</body>
+</html>
