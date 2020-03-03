@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.dxh.dao.CourseDao">
+	<sql id="selectCourseListWhere">
+			<if test="course_id !=null and course_id !=''">
+				and course_id = #{course_id}
+			</if>
+			<if test="course_name !=null and course_name !=''">
+				and course_name like "%"#{course_name}"%"
+			</if>
+			<if test="course_time_1 !=null and course_time_1 !=''">
+				and course_time_1 like #{course_time_1}
+			</if>
+			<if test="course_time_2 !=null and course_time_2 !=''">
+				and course_time_2 like #{course_time_2}
+			</if>
+	</sql>
+	<select id="selectCourseList" parameterType="com.dxh.po.Course" resultType="com.dxh.po.Course">
+		select 
+			course_id,
+			course_name,
+			e.dict_item_name course_tea,
+			course_point,
+			o.dict_item_name course_time_1,
+			t.dict_item_name course_time_2,
+			course_limited
+		from 
+			sys_course c
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				time_dict
+			where
+				dict_type_code='1'
+		) o ON c.course_time_1=o.dict_id
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				time_dict
+			where
+				dict_type_code='2'
+		) t ON c.course_time_2=t.dict_id
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				time_dict
+			where
+				dict_type_code='3'
+		<if test="course_tea !=null and course_tea !=''">
+				and dict_item_name like "%"#{course_tea}"%"
+		</if>
+		) e ON c.course_tea=e.dict_id
+		<where>
+			<include refid="selectCourseListWhere"/>
+			<if test="course_tea !=null and course_tea !=''">
+				and c.course_tea=e.dict_id
+			</if>
+		</where>
+			<if test="start !=null and rows !=null">
+				limit #{start},#{rows}
+			</if>
+	</select>
+	<select id="selectCoursestuList" resultType="com.dxh.po.Course">
+		select 
+			course_id,
+			course_name,
+			e.dict_item_name course_tea,
+			course_point,
+			o.dict_item_name course_time_1,
+			t.dict_item_name course_time_2,
+			course_limited
+		from 
+			sys_course c
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				time_dict
+			where
+				dict_type_code='1'
+		) o ON c.course_time_1=o.dict_id
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				time_dict
+			where
+				dict_type_code='2'
+		) t ON c.course_time_2=t.dict_id
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				time_dict
+			where
+				dict_type_code='3'
+		<if test="course_tea !=null and course_tea !=''">
+				and dict_item_name like "%"#{course_tea}"%"
+		</if>
+		) e ON c.course_tea=e.dict_id
+		<where>
+			<if test="status=='true'">
+				not exists( select * from stu_course s where s.course_id=c.course_id and student_id=#{student_id}) 
+			</if>
+			<if test="status=='false'">
+				exists( select * from stu_course s where s.course_id=c.course_id and student_id=#{student_id}) 
+			</if>
+			<if test="course_tea !=null and course_tea !=''">
+				and c.course_tea=e.dict_id
+			</if>
+			<include refid="selectCourseListWhere"/>
+		</where>
+			<if test="start !=null and rows !=null">
+				limit #{start},#{rows}
+			</if>;
+		
+	</select>
+	<select id="selectCourseListCount" parameterType="com.dxh.po.Course" resultType="Integer">
+		select count(*) from sys_course
+		<where>
+			<include refid="selectCourseListWhere"/>
+		</where>
+	</select>
+	<insert id="createCourse" parameterType="com.dxh.po.Course">
+		insert into sys_course(
+			course_name,
+			course_tea,
+			course_point,
+			course_time_1,
+			course_time_2,
+			course_limited
+		)
+		values(#{course_name},
+			#{course_tea},
+			#{course_point},
+			#{course_time_1},
+			#{course_time_2},
+			#{course_limited}
+		)
+	</insert>
+	<select id="getCourseById" parameterType="Integer" resultType="com.dxh.po.Course">
+		select * from sys_course where course_id=#{id}
+	</select>
+	<insert id="CreateStudentCourse" parameterType="com.dxh.po.StudentCourse">
+		insert into stu_course(
+			student_id,
+			course_id
+		)
+		values(
+			#{student_id},
+			#{course_id}
+		)
+	</insert>
+	<delete id="deleteCourse" parameterType="Integer">
+		delete from sys_course where course_id=#{id} ALTER TABLE sys_course AUTO_INCREMENT = 1; 
+	</delete>
+	<delete id="deleteCourseStu" parameterType="Integer">
+		delete from stu_course where course_id=#{id} ALTER TABLE stu_course AUTO_INCREMENT = 1; 
+	</delete>
+		<update id="updateCourse" parameterType="com.dxh.po.Course">
+		update sys_course
+		<set>
+			<if test="course_name !=null and course_name != ''">
+				course_name =#{course_name},
+			</if>
+			<if test="course_tea !=null and course_tea != ''">
+				course_tea =#{course_tea},
+			</if>
+			<if test="course_point !=null and course_point != ''">
+				course_point =#{course_point},
+			</if>
+			<if test="course_time_1 !=null and course_time_1 != ''">
+				course_time_1 =#{course_time_1},
+			</if>
+			<if test="course_time_2 !=null and course_time_2 != ''">
+				course_time_2 =#{course_time_2},
+			</if>
+			<if test="course_limited !=null and course_limited != ''">
+				course_limited =#{course_limited},
+			</if>
+		</set>
+		where course_id =#{course_id}
+	</update>
+</mapper>

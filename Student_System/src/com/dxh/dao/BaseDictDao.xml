@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.dxh.dao.BaseDictDao">
+	<select id="selectBaseDictByTypeCode" parameterType="String" resultType="com.dxh.po.BaseDict">
+		select * from base_dict where dict_type_code =#{typecode} order by dict_id+0 asc limit 10
+	</select>
+	<select id="selectTimeDictByTypeCode" parameterType="String" resultType="com.dxh.po.BaseDict">
+		select * from time_dict where dict_type_code =#{typecode} order by dict_id+0 asc limit 10
+	</select>
+	<select id="selectTimeDictById" parameterType="Integer" resultType="com.dxh.po.BaseDict">
+		select * from time_dict where dict_id=#{dict_id}
+	</select>
+</mapper>

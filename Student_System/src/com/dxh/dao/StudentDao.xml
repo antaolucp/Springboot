@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.dxh.dao.StudentDao">
+	<sql id="selectStudentListWhere">
+		<where>
+			<if test="student_id !=null and student_id !=''">
+				and student_id = #{student_id}
+			</if>
+			<if test="student_name !=null and student_name !=''">
+				and student_name like "%"#{student_name}"%"
+			</if>
+			<if test="student_major !=null and student_major != ''">
+				and student_major like #{student_major}
+			</if>
+			<if test="student_grade !=null and student_grade != ''">
+				and student_grade like #{student_grade}
+			</if>
+			<if test="student_tie !=null and student_tie != ''">
+				and student_tie like #{student_tie}
+			</if>
+		</where>
+	</sql>
+	<select id="selectStudentList" parameterType="com.dxh.po.Student" resultType="com.dxh.po.Student">
+		select 
+			student_id,
+			student_name,
+			student_sex,
+			student_nation,
+			student_birth,	
+			t.dict_item_name student_tie,
+			m.dict_item_name student_major,
+			g.dict_item_name student_grade,
+			student_place
+		from 
+			sys_stu s
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				base_dict
+			where
+				dict_type_code='1'
+		) t ON s.Student_tie=t.dict_id
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				base_dict
+			where
+				dict_type_code='2'
+		) m ON s.Student_major=m.dict_id
+		LEFT JOIN (
+			select
+				dict_id,
+				dict_item_name
+			from
+				base_dict
+			where
+				dict_type_code='3'
+		) g ON s.Student_grade=g.dict_id
+		<include refid="selectStudentListWhere"/>
+		<if test="start !=null and rows !=null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<select id="selectStudentListCount" parameterType="com.dxh.po.Student" resultType="Integer">
+		select count(*) from sys_stu
+		<include refid="selectStudentListWhere"/>
+	</select>
+	<insert id="createStudent" parameterType="com.dxh.po.Student">
+		insert into sys_stu(
+			student_name,
+			student_sex,
+			student_nation,
+			student_birth,
+			student_tie,
+			student_major,
+			student_grade,
+			student_place
+		)
+		values(#{student_name},
+			#{student_sex},
+			#{student_nation},
+			#{student_birth},
+			#{student_tie},
+			#{student_major},
+			#{student_grade},
+			#{student_place}
+		)
+		<selectKey resultType="Integer" keyProperty="student_id" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+	</insert>
+	<select id="getStudentById" parameterType="Integer" resultType="com.dxh.po.Student">
+		select * from sys_stu where student_id=#{id}
+	</select>
+	<update id="updateStudent" parameterType="com.dxh.po.Student">
+		update sys_stu
+		<set>
+			<if test="student_name !=null and student_name != ''">
+				student_name =#{student_name},
+			</if>
+			<if test="student_sex !=null and student_sex != ''">
+				student_sex =#{student_sex},
+			</if>
+			<if test="student_nation !=null and student_nation != ''">
+				student_nation =#{student_nation},
+			</if>
+			<if test="student_birth !=null and student_birth != ''">
+				student_birth =#{student_birth},
+			</if>
+			<if test="student_major !=null and student_major != ''">
+				student_major =#{student_major},
+			</if>
+			<if test="student_grade !=null and student_grade != ''">
+				student_grade =#{student_grade},
+			</if>
+			<if test="student_place !=null and student_place != ''">
+				student_place =#{student_place},
+			</if>
+			<if test="student_tie !=null and student_tie !=''">
+				student_tie =#{student_tie},
+			</if>
+		</set>
+		where student_id =#{student_id}
+	</update>
+	<delete id="deleteStudent" parameterType="Integer">
+		delete from sys_stu where student_id=#{id}  ALTER TABLE sys_stu AUTO_INCREMENT = 1;  
+	</delete>
+</mapper>

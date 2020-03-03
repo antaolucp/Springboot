@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.dxh.dao.UserDao">
+	<select id="findUser" parameterType="String" resultType="com.dxh.po.User">
+		select * from sys_user
+		where usercode=#{usercode}
+		and password=#{password}
+		and checked=#{checked}
+	</select>
+	<insert id="CreateUser" parameterType="com.dxh.po.User">
+		insert into sys_user(
+			username,
+			usercode,
+			password,
+			checked,
+			student_id
+		)
+		values(#{username},
+			#{usercode},
+			#{password},
+			#{checked},
+			#{student_id}
+		)
+	</insert>
+	<delete id="DeleteUser" parameterType="Integer">
+		delete from sys_user where student_id=#{id}
+	</delete>
+	<!-- 修改密码 -->
+	<select id="getUserById" parameterType="Integer" resultType="com.dxh.po.User">
+		select id,usercode,password from sys_user where  id=#{id}
+	</select>
+	<update id="updateUser" parameterType="com.dxh.po.User">
+	update sys_user
+	<set>
+		<if test="password !=null and password != ''">
+			password =#{password}
+		</if>
+	</set>
+	where id=#{user.id} and password=#{user.password}
+	</update>
+</mapper>
